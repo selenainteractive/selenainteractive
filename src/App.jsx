@@ -4,7 +4,7 @@ import Games from './pages/Games';
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Games />} />
         <Route path="/catalog" element={<Home />} />
