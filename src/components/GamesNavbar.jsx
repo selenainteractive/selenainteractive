@@ -13,6 +13,17 @@ export default function GamesNavbar() {
     setIsMenuOpen(false);
   };
 
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMenuOpen) {
+      closeMenu();
+    }
+  };
+
   return (
     <nav className="absolute top-0 w-full z-50">
       <div className="flex justify-between items-center px-4 md:px-margin py-2 md:py-xs w-full max-w-7xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -24,9 +35,9 @@ export default function GamesNavbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-gutter items-center">
           <Link className="text-primary font-bold border-b-2 border-primary pb-1" to="/">HOME</Link>
-          <a className="text-white/80 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-1 rounded" href="#about">ABOUT</a>
+          <a className="text-white/80 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-1 rounded cursor-pointer" onClick={(e) => scrollToSection(e, 'about')}>ABOUT</a>
           <Link className="text-white/80 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-1 rounded" to="/catalog">GAMES</Link>
-          <a className="text-white/80 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-1 rounded" href="#developer">DEVELOPER</a>
+          <a className="text-white/80 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-1 rounded cursor-pointer" onClick={(e) => scrollToSection(e, 'developer')}>DEVELOPER</a>
         </div>
 
         {/* Desktop Join Discord - sekarang berupa link */}
@@ -80,9 +91,9 @@ export default function GamesNavbar() {
             {/* Menu Links */}
             <nav className="flex flex-col gap-4 text-white text-lg font-medium">
               <Link to="/" className="hover:text-primary transition-colors" onClick={closeMenu}>HOME</Link>
-              <a href="#about" className="hover:text-primary transition-colors" onClick={closeMenu}>ABOUT</a>
+              <a onClick={(e) => scrollToSection(e, 'about')} className="hover:text-primary transition-colors cursor-pointer">ABOUT</a>
               <Link to="/catalog" className="hover:text-primary transition-colors" onClick={closeMenu}>GAMES</Link>
-              <a href="#developer" className="hover:text-primary transition-colors" onClick={closeMenu}>DEVELOPER</a>
+              <a onClick={(e) => scrollToSection(e, 'developer')} className="hover:text-primary transition-colors cursor-pointer">DEVELOPER</a>
             </nav>
 
             {/* Mobile Join Discord - sekarang berupa link */}
