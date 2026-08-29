@@ -1,4 +1,4 @@
-import LOGO from "../assets/Logo.png";
+import LOGO from "../assets/LOGO.png";
 import { FaFacebookF, FaTiktok, FaXTwitter, FaYoutube, FaInstagram } from "react-icons/fa6";
 
 export default function GamesFooter() {

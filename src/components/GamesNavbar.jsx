@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LOGO from "../assets/Logo.png";
+import LOGO from "../assets/LOGO.png";
 
 export default function GamesNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
