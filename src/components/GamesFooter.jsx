@@ -1,7 +1,16 @@
 import LOGO from "../assets/LOGO.png";
 import { FaFacebookF, FaTiktok, FaXTwitter, FaYoutube, FaInstagram } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 export default function GamesFooter() {
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer
       className="w-full py-8 md:py-12 px-4 md:px-margin flex-grow"
@@ -35,23 +44,23 @@ export default function GamesFooter() {
             </h4>
             <nav className="flex flex-col gap-1 md:gap-2">
               <a
-                className="text-white hover:text-primary transition-colors text-xs md:text-sm"
-                href="#about"
+                className="text-white hover:text-primary transition-colors text-xs md:text-sm cursor-pointer"
+                onClick={(e) => scrollToSection(e, 'about')}
               >
                 About
               </a>
               <a
-                className="text-white hover:text-primary transition-colors text-xs md:text-sm"
-                href="#developer"
+                className="text-white hover:text-primary transition-colors text-xs md:text-sm cursor-pointer"
+                onClick={(e) => scrollToSection(e, 'developer')}
               >
                 Team
               </a>
-              <a
+              <Link
                 className="text-white hover:text-primary transition-colors text-xs md:text-sm"
-                href="/catalog"
+                to="/catalog"
               >
                 Games
-              </a>
+              </Link>
             </nav>
           </div>
 
